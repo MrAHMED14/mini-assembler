@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1703721005 source:e:\my folder\youtube avatar\developer\tp\mini assembleur\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lib.h"
+
+1703720894 e:\my folder\youtube avatar\developer\tp\mini assembleur\lib.h
+	<stdbool.h>
+
+1703720894 source:e:\my folder\youtube avatar\developer\tp\mini assembleur\format.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lib.h"
+
+1703720894 source:e:\my folder\youtube avatar\developer\tp\mini assembleur\lib.c
+	"lib.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	<errno.h>
+	<stdbool.h>
+

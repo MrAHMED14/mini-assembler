@@ -1,0 +1,2 @@
+strings: .asciiz "apple"
+max_string: .word 32                # Space for storing the longest string

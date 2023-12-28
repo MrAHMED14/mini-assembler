@@ -1,0 +1,33 @@
+la $t0, strings                     # Load address of the string
+la $t1, max_string                  # Load address of max_string
+addi $t2, $zero, 16                 # $t2 holds the number 16
+addi $t3, $zero, 1                  # Loop counter
+loop:
+lw $t4, 0($t0)                      # Load the address of the current string into $t4
+addi $t0, $t0, 4                    # Move to the next address
+lw $t5, 0($t4)                      # Load the address of the current string into $t5
+lw $t6, 0($t1)                      # Load the address of the max_string into $t6
+addi $t7, $zero, 0                  # Initialize index for comparison
+compare_loop:
+lw $s0, 0($t5)                      # Load byte from current string
+lw $s1, 0($t6)                      # Load byte from max_string
+beq $s0, $zero, checkMax            # Check if end of string is reached
+slt $t8, $s0, $s1                   # Check if current character is less than max character
+beq $t8, $zero, notMax              # Branch if not less than max character
+addi $t9, $t5, 0                    # Update max_string pointer if current string is longer
+addi $t1, $t5, 0
+notMax:
+addi $t5, $t5, 1                    # Move to the next character of current string
+addi $t6, $t6, 1                    # Move to the next character of max_string
+addi $t7, $t7, 1                    # Increment index for comparison
+j compare_loop
+checkMax:
+beq $t7, $zero, notMax              # If current string is empty, don't update max_string
+addi $t1, $t9,0                     # Update max_string pointer to the longest string
+not_update_max:
+addi $t3, $t3, 1                    # Increment loop counter
+slt $t1, $t3, $t2                   # Check if loop counter < number of strings
+bne $t1, $zero, loop                # Repeat loop if condition is true
+j exit
+exit:
+j exit

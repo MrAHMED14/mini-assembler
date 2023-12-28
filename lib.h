@@ -5,19 +5,19 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
-#ifdef __linux__
-    #define CLEAR_SCREEN system("clear")
+#ifdef _WIN32
+    #define CLEAR_SCREEN system("cls") // Clear screen for other systems
 #else
-    #define CLEAR_SCREEN system("cls")
+    #define CLEAR_SCREEN system("clear") // Clear screen for Linux
 #endif
 
+
+
+
 #ifdef _WIN32
-    #define SET_COLOR_RED printf("\033[0;31m")
-    #define SET_COLOR_GREEN printf("\033[0;32m")
-    #define SET_COLOR_YELLOW printf("\033[0;33m")
-    #define SET_COLOR_BLUE printf("\033[0;34m")
+    #define SET_COLOR_RED system("color c")
+    #define SET_COLOR_BLUE system("color b")
     #define SET_COLOR_WHITE system("color f")
-    #define RESET_COLOR printf("\033[0m")
 #endif
 
 

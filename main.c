@@ -33,7 +33,7 @@
 
 /**
 ---------------- Status -----------------
-    - 75% Completed
+    - 92% Completed
 
 -------------- ERRORS LOG ---------------
     - Comment at first line
@@ -70,7 +70,7 @@ int main(){
     }
 
     printf("Assembling . . .\n");
-    system("clear");
+    CLEAR_SCREEN;
 
     //First process
     while (fgets(line, sizeof(line), file) != NULL) {
@@ -109,7 +109,7 @@ int main(){
     fclose(dataFile);
     fclose(textFile);
     /** --------------------------- Data Section --------------------------- **/
-    //0% Done!
+    //85% Done!
     if(dataSection){
         dataFile = fopen("bin/lib/.data.txt", "r");
 
@@ -253,7 +253,9 @@ int main(){
     }else{
         printf("Warning: '.text' section not found.\n");
     }
+
     /** -------------------------------------------------------------------- **/
+
     //Output
     if(!hasErr){
       #ifdef _WIN32
@@ -262,7 +264,6 @@ int main(){
         printf("Assemble operation completed successfully.\n");
         OutputP(outFile);
         printf("\n'Output.txt' file has been created.\n");
-
     }else{
       #ifdef _WIN32
           SET_COLOR_RED;

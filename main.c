@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lib.h"
+#include "format.h"
 #define MAX_LENGTH 256
 /**
     @struct rMap[]
@@ -48,7 +49,9 @@ int main(){
     char line[MAX_LENGTH + 2], Type;
     int hasErr = 0, line_count = 0, PC = 0x00400000, i = 0;
 
-    system("color f");
+    #ifdef _WIN32
+        SET_COLOR_WHITE;
+    #endif
 
     file = fopen("Assembly File/main.txt", "r");
     if (file == NULL) {
@@ -67,7 +70,7 @@ int main(){
     }
 
     printf("Assembling . . .\n");
-    system("cls");
+    system("clear");
 
     //First process
     while (fgets(line, sizeof(line), file) != NULL) {
@@ -253,13 +256,17 @@ int main(){
     /** -------------------------------------------------------------------- **/
     //Output
     if(!hasErr){
-        system("color b");
+      #ifdef _WIN32
+          SET_COLOR_BLUE;
+      #endif
         printf("Assemble operation completed successfully.\n");
         OutputP(outFile);
         printf("\n'Output.txt' file has been created.\n");
 
     }else{
-        system("color c");
+      #ifdef _WIN32
+          SET_COLOR_RED;
+      #endif
         printf("\nAssemble operation completed with errors.\n");
     }
 

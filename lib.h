@@ -1,12 +1,29 @@
 #ifndef LIB_H_INCLUDED
 #define LIB_H_INCLUDED
 
-
+#include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
+
+#ifdef __linux__
+    #define CLEAR_SCREEN system("clear")
+#else
+    #define CLEAR_SCREEN system("cls")
+#endif
+
+#ifdef _WIN32
+    #define SET_COLOR_RED printf("\033[0;31m")
+    #define SET_COLOR_GREEN printf("\033[0;32m")
+    #define SET_COLOR_YELLOW printf("\033[0;33m")
+    #define SET_COLOR_BLUE printf("\033[0;34m")
+    #define SET_COLOR_WHITE system("color f")
+    #define RESET_COLOR printf("\033[0m")
+#endif
+
 
 typedef struct Label label;
 struct Label{
-	const char *name;
+	char *name;
 	int address;
 };
 
@@ -53,6 +70,8 @@ struct Machine{
 extern label labelMap[50];
 extern label dataLabelMap[50];
 
+void OutputP(FILE *outFile);
+void insCodeF(char *instruction, int code, int *hasErr);
 unsigned int binaryToDecimal(const char *binaryStr);
 int isLineEmpty(const char *line);
 char instruction_type(char *instruction);
@@ -68,6 +87,9 @@ void removeLeadingSpaces(char *str);
 bool isLabel(const char *str) ;
 void removeTrailingSpaces(char* str);
 int SearchLabel(const char* label);
+int SearchDataLabel(const char* label);
+void DataSegemntF(char *label, int address, int *hasErr);
+bool isValidFormat(char *str);
 
 
 

@@ -1,15 +1,17 @@
-#include "lib.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <errno.h>
 #include <stdbool.h>
+#include "lib.h"
+#include <time.h>
 #define MAX_LENGTH 256 // Maximum length of each line
 #define MAX_RESULTS 100
 
 label labelMap[50];
 label dataLabelMap[50];
+
 rType rMap[] = {
 		{ "add", "100000" },
 		{ "sub", "100010" },

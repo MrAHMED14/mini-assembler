@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "lib.h"
+#include "format.h"
+
 
 //Format R 95% Done!
 void FromatR(char *instruction, int line, int *hasErr){

@@ -13,5 +13,3 @@ Which converts supported instructions into machine code written in hexadecimal v
     - The assembly code file are located in the "Assembly File" folder in "main.txt" (don't delete this file)
     - The output file is located in the "Output" folder
 
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
